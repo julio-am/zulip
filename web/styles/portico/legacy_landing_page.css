@@ -1957,13 +1957,13 @@ button {
     }
 
     .portico-header .content > ul::before {
-        content: "Zulip";
+        content: "JSlack";
         display: block;
         margin-top: 25px;
         padding-top: 5px;
         margin-left: 10px;
 
-        width: 100px;
+        width: 112px;
         height: 40px;
 
         font-size: 1.5rem;
@@ -1972,7 +1972,7 @@ button {
         color: hsl(0deg 0% 27%);
 
         background-size: 40px auto;
-        background-image: url("../../images/zulip-logo.svg");
+        background-image: url("../../images/favicon.svg");
         background-repeat: no-repeat;
     }
 

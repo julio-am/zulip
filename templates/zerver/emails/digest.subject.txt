@@ -1,1 +1,1 @@
-{% trans %}Zulip digest for {{ realm_name }}{% endtrans %}
+{% trans %}JSlack digest for {{ realm_name }}{% endtrans %}

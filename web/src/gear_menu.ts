@@ -35,12 +35,12 @@ link:  Help center
 info:  Keyboard shortcuts
 info:  Message formatting
 info:  Search filters
-hash:  About Zulip
+hash:  About JSlack
 ---
 link:  Desktop & mobile apps
 link:  Integrations
 link:  API documentation
-link:  Sponsor Zulip
+link:  Sponsor JSlack
 link:  Plans and pricing
 ---
 hash:   Invite users

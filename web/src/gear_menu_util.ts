@@ -7,28 +7,28 @@ export function version_display_string(): string {
 
     if (realm.zulip_version.endsWith("-dev+git")) {
         // The development environment uses this version string format.
-        return $t({defaultMessage: "Zulip Server dev environment"});
+        return $t({defaultMessage: "JSlack Server dev environment"});
     }
 
     if (is_fork) {
-        // For forks, we want to describe the Zulip version this was
+        // For forks, we want to describe the JSlack version this was
         // forked from, and that it was modified.
         const display_version = realm.zulip_merge_base
             .replace(/\+git.*/, "")
             .replace(/(-beta\d+).*/, "$1")
             .replace(/-dev.*/, "-dev");
-        return $t({defaultMessage: "Zulip Server {display_version} (modified)"}, {display_version});
+        return $t({defaultMessage: "JSlack Server {display_version} (modified)"}, {display_version});
     }
 
     // The below cases are all for official versions; either a
-    // release, or Git commit from one of Zulip's official branches.
+    // release, or Git commit from one of JSlack's official branches.
 
     if (version.includes("+git")) {
-        // A version from a Zulip official maintenance branch such as 5.x.
+        // A version from a JSlack official maintenance branch such as 5.x.
         const display_version = version.replace(/\+git.*/, "");
-        return $t({defaultMessage: "Zulip Server {display_version} (patched)"}, {display_version});
+        return $t({defaultMessage: "JSlack Server {display_version} (patched)"}, {display_version});
     }
 
     const display_version = version.replace(/\+git.*/, "").replace(/-dev.*/, "-dev");
-    return $t({defaultMessage: "Zulip Server {display_version}"}, {display_version});
+    return $t({defaultMessage: "JSlack Server {display_version}"}, {display_version});
 }

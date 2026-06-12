@@ -2,7 +2,7 @@
 {% set entrypoint = "register" %}
 
 {% block title %}
-<title>{{ _("Set a new password") }} | Zulip</title>
+<title>{{ _("Set a new password") }} | JSlack</title>
 {% endblock %}
 
 {% block portico_content %}
@@ -53,19 +53,6 @@
                         {% endfor %}
                     {% endif %}
                 </div>
-
-                {% if corporate_enabled and form.user.realm.demo_organization_scheduled_deletion_date %}
-                {% if not form.user.enable_marketing_emails and (form.user.realm.get_first_human_user() == form.user) %}
-                <div class="input-group">
-                    <label for="id_enable_marketing_emails_demo_creator" class="inline-block checkbox marketing_emails_checkbox">
-                        <input id="id_enable_marketing_emails_demo_creator" type="checkbox" name="enable_marketing_emails"
-                          checked="checked" />
-                        <span class="rendered-checkbox"></span>
-                        {% trans %}Subscribe me to Zulip's low-traffic newsletter (a few emails a year).{% endtrans %}
-                    </label>
-                </div>
-                {% endif %}
-                {% endif %}
 
                 <div class="input-box">
                     <button type="submit" class="password-reset-button" value="Submit">Submit</button>

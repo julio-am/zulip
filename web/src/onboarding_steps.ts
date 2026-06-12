@@ -84,7 +84,7 @@ function narrow_to_dm_with_welcome_bot_new_user(
 
         if (!browser_history.is_current_hash_home_view()) {
             // If this account was created with a `next` parameter to
-            // take the user to a specific Zulip view, that takes
+            // take the user to a specific JSlack view, that takes
             // precedence over sending the user to the welcome bot DM
             // view. The user will hopefully still make their way
             // there, as it is still an unread DM conversation.
@@ -115,12 +115,12 @@ function show_navigation_tour_video(
         });
         let watch_later_clicked = false;
         dialog_widget.launch({
-            modal_title_html: $t_html({defaultMessage: "Welcome to Zulip!"}),
+            modal_title_html: $t_html({defaultMessage: "Welcome to JSlack!"}),
             modal_content_html,
             on_click() {
                 // Do nothing
             },
-            modal_submit_button_text: $t({defaultMessage: "Skip video — I'm familiar with Zulip"}),
+            modal_submit_button_text: $t({defaultMessage: "Skip video — I'm familiar with JSlack"}),
             modal_exit_button_text: $t({defaultMessage: "Watch later"}),
             close_on_submit: true,
             id: "navigation-tour-video-modal",
