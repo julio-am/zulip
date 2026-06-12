@@ -40,7 +40,7 @@ class Command(sendtestemail.Command):
 
         message = (
             "Success!  If you receive this message (and a second with a different subject), "
-            "you've successfully configured sending emails from your Zulip server.  "
+            "you've successfully configured sending emails from your JSlack server.  "
             "Remember that you need to restart "
             "the Zulip server with /home/zulip/deployments/current/scripts/restart-server "
             "after changing the settings in /etc/zulip before your changes will take effect."
@@ -50,11 +50,13 @@ class Command(sendtestemail.Command):
             try:
                 sender = f"{settings.INSTALLATION_NAME} <{FromAddress.SUPPORT}>"
                 print(f"  * {sender}")
-                send_mail("Zulip email test", message, sender, kwargs["email"])
+                send_mail("JSlack email test", message, sender, kwargs["email"])
 
-                noreply_sender = FromAddress.tokenized_no_reply_address()
+                noreply_sender = (
+                    f"{settings.INSTALLATION_NAME} <{FromAddress.tokenized_no_reply_address()}>"
+                )
                 print(f"  * {noreply_sender}")
-                send_mail("Zulip noreply email test", message, noreply_sender, kwargs["email"])
+                send_mail("JSlack noreply email test", message, noreply_sender, kwargs["email"])
             except smtplib.SMTPException as e:
                 print(f"Failed to send mails: {e}")
                 print()
@@ -75,7 +77,7 @@ class Command(sendtestemail.Command):
         print("Successfully sent 2 emails to {}!".format(", ".join(kwargs["email"])))
 
         if kwargs["managers"]:
-            mail_managers("Zulip manager email test", "This email was sent to the site managers.")
+            mail_managers("JSlack manager email test", "This email was sent to the site managers.")
 
         if kwargs["admins"]:
-            mail_admins("Zulip admins email test", "This email was sent to the site admins.")
+            mail_admins("JSlack admins email test", "This email was sent to the site admins.")
