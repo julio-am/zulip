@@ -75,14 +75,7 @@ class FromAddress:
     def security_email_from_name(
         language: str | None = None, user_profile: UserProfile | None = None
     ) -> str:
-        if language is None:
-            assert user_profile is not None
-            language = user_profile.default_language
-
-        with override_language(language):
-            return _("{service_name} account security").format(
-                service_name=settings.INSTALLATION_NAME
-            )
+        return settings.INSTALLATION_NAME
 
 
 def build_email(
@@ -197,7 +190,7 @@ def build_email(
         logger.warning("Missing language for email template '%s'", template_prefix)
 
     if from_name is None:
-        from_name = "Zulip"
+        from_name = settings.INSTALLATION_NAME
     if from_address is None:
         from_address = FromAddress.NOREPLY
     if from_address == FromAddress.tokenized_no_reply_placeholder:

@@ -48,7 +48,7 @@ class Command(sendtestemail.Command):
         with redirect_stderr(io.StringIO()) as f:
             smtplib.SMTP.debuglevel = 1
             try:
-                sender = FromAddress.SUPPORT
+                sender = f"{settings.INSTALLATION_NAME} <{FromAddress.SUPPORT}>"
                 print(f"  * {sender}")
                 send_mail("Zulip email test", message, sender, kwargs["email"])
 
